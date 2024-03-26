@@ -1,0 +1,10 @@
+---
+image_dir: "{{ android_home }}/system-images/android-{{ android_version }}"
+
+image_default: "system-images;android-{{ android_version }};default;{{ ansible_architecture }}"
+
+image_google_apis: "system-images;android-{{ android_version }};google_apis;{{ ansible_architecture }}"
+
+image_google_apis_playstore: "system-images;android-{{ android_version }};google_apis_playstore;{{ ansible_architecture }}"
+
+image_android_tv: "system-images;android-{{ android_version }};android-tv;{{ ansible_architecture | regex_replace('_64', '') }}"

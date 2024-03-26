@@ -1,0 +1,6 @@
+---
+- name: Emulator
+  include_tasks: Emulator.yml
+
+- name: Image
+  include_tasks: Image.yml

@@ -1,0 +1,33 @@
+---
+
+- name: default image
+  ansible.builtin.shell: "{{ item }}"
+  args:
+    creates: "{{ image_dir }}/default/{{ ansible_architecture }}/system.img"
+  loop:
+    - 'sdkmanager --install "{{ image_default }}"'
+  when: default or all_images
+
+- name: Google APIs image
+  ansible.builtin.shell: "{{ item }}"
+  args:
+    creates: "{{ image_dir }}/google_apis/{{ ansible_architecture }}/system.img"
+  loop:
+    - 'sdkmanager --install "{{ image_google_apis }}"'
+  when: google_apis or all_images
+
+- name: Google Playstore image
+  ansible.builtin.shell: "{{ item }}"
+  args:
+    creates: "{{ image_dir }}/google_apis_playstore/{{ ansible_architecture }}/system.img"
+  loop:
+    - 'sdkmanager --install "{{ image_google_apis_playstore }}"'
+  when: google_apis_playstore or all_images
+
+- name: Android TV image
+  ansible.builtin.shell: "{{ item }}"
+  args:
+    creates: "{{ image_dir }}/android-tv/{{ ansible_architecture | regex_replace('_64', '') }}/system.img"
+  loop:
+    - 'sdkmanager --install "{{ image_android_tv }}"'
+  when: android_tv or all_images

@@ -1,0 +1,7 @@
+---
+- name: Android Emulator
+  ansible.builtin.shell: "{{ item }}"
+  args:
+    creates: "{{ android_home }}/emulator"
+  loop:
+    - 'sdkmanager --install "emulator"'

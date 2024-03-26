@@ -1,0 +1,12 @@
+---
+android_version: 34
+
+all_images: false
+
+default: false
+
+google_apis: false
+
+google_apis_playstore: true
+
+android_tv: false
